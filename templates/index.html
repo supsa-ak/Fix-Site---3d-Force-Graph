@@ -75,7 +75,7 @@
         <div class="col-md-2 right-section d-flex justify-content-center align-items-center">
           <div id=rightPanel>
             <div id="rightPanelMenu">
-              <form action="/" method="POST">
+              <form action="/updatejson" method="POST">
                 <div class="form-group">
                   <label for="formGroupExampleInput">Node Id</label>
                   <input type="text" class="form-control" id="formGroupExampleInput" name="nodeid"
@@ -91,19 +91,8 @@
                   <input type="number" class="form-control" id="formGroupExampleInput" name="nodegrp"
                     placeholder="Example input">
                 </div>
-
                 <label for="multi">Connect Node to</label>
-                <input type="text" class="form-control" placeholder="Enter existing node name" name="nodeconn"
-                  list="multi">
-                <!-- <div class="container">               
-                  <section>
-                    <datalist multiple="multiple" id="multi">
-                      {% for i in data['nodes'] %}
-                        <option value="{{i.id}}">{{ i.id }}</option>                        
-                      {% endfor %}          
-                    </datalist>
-                  </section>
-                </div> -->
+                <input type="text" class="form-control" placeholder="Enter existing node name" name="nodeconn" list="multi">
                 </br>
                 <button type="submit" class="btn btn-light">Create a new node</button>
               </form>
@@ -163,27 +152,7 @@
       (document.getElementById('3d-graph'))
       // .jsonUrl('https://raw.githubusercontent.com/vasturiano/3d-force-graph/master/example/datasets/miserables.json')
       // .jsonUrl('https://raw.githubusercontent.com/vasturiano/3d-force-graph/master/example/datasets/blocks.json')
-      .jsonUrl('/datasets/nodes.json')
-      .nodeAutoColorBy('group')
-      .onNodeClick(node => {
-        nodeCore.onNodeClick(node);
-      })
-      .nodeThreeObject(node => {
-        const sprite = new SpriteText(node.id);
-        sprite.material.depthWrite = false; // make sprite background transparent
-        sprite.color = node.color;
-        sprite.textHeight = 8;
-        return sprite;
-      });
-    // Spread nodes a little wider    
-    Graph.d3Force('charge').strength(-60);
-  }
-  function graph2(){
-    const Graph = ForceGraph3D()
-      (document.getElementById('3d-graph'))
-      // .jsonUrl('https://raw.githubusercontent.com/vasturiano/3d-force-graph/master/example/datasets/miserables.json')
-      // .jsonUrl('https://raw.githubusercontent.com/vasturiano/3d-force-graph/master/example/datasets/blocks.json')
-      .jsonUrl('/datasets/nodes2.json')
+      .jsonUrl('/datasets/nodes.json').refresh()
       .nodeAutoColorBy('group')
       .onNodeClick(node => {
         nodeCore.onNodeClick(node);
@@ -200,12 +169,10 @@
   }
 
   function refreshGraph() {
-    // var container = document.getElementById("3d-graph");
-    // var content = container.innerHTML;
-    // container.innerHTML = content;
-    graph2()
-    graph()
-    
+    var container = document.getElementById("3d-graph");
+    var content = container.innerHTML;
+    container.innerHTML = content;
+    graph()  
   }
 
 </script>

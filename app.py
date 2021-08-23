@@ -9,9 +9,14 @@ def write_json(data, filename="datasets/nodes.json"):
 	with open(filename, "w") as f:
 		json.dump(data, f, indent=4)
 
-@app.route('/', methods=["POST", "GET"])
+@app.route('/')
 def index():
 	print("_______INDEX___________")
+
+	return render_template('index.html')
+
+@app.route('/updatejson', methods=['GET','POST'])
+def updatejson():
 	f = open('datasets/nodes.json')
 	data = json.load(f)
 	if request.method == "POST":
@@ -48,7 +53,7 @@ def index():
 
 		write_json(data)
 	# print(data)
-	return render_template('index.html', data=data)
+	return redirect(url_for('index'))	
 
 
 @app.route('/datasets/<path:path>')
