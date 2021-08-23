@@ -1,0 +1,168 @@
+{
+    "nodes": [
+        {
+            "id": "Cravatte",
+            "group": 1,
+            "description": "description 1",
+            "val": 20
+        },
+        {
+            "id": "Count",
+            "group": 1,
+            "description": "description 2",
+            "val": 90
+        },
+        {
+            "id": "Labarre",
+            "group": 3,
+            "description": "description 3",
+            "val": 30
+        },
+        {
+            "id": "Valjean",
+            "group": 1,
+            "description": "description 4",
+            "val": 20
+        },
+        {
+            "id": "Marguerite",
+            "group": 3,
+            "description": "description 5",
+            "val": 40
+        },
+        {
+            "id": "sakbrro23",
+            "group": "3",
+            "description": "a;lskd sd",
+            "val": 20,
+            "links": [
+                {
+                    "target": "Labarre"
+                }
+            ]
+        },
+        {
+            "id": "sak",
+            "group": "-1",
+            "description": "math",
+            "val": 20,
+            "links": [
+                {
+                    "target": "Cravatte"
+                }
+            ]
+        },
+        {
+            "id": "pak",
+            "group": "",
+            "description": ";askld",
+            "val": 20,
+            "links": [
+                {
+                    "target": "sak"
+                }
+            ]
+        },
+        {
+            "id": "paking",
+            "group": "3",
+            "description": ";alsdkf",
+            "val": 20,
+            "links": [
+                {
+                    "target": "pak"
+                }
+            ]
+        },
+        {
+            "id": "maeker",
+            "group": "1",
+            "description": ";alksd",
+            "val": 20,
+            "links": [
+                {
+                    "target": "pak"
+                }
+            ]
+        },
+        {
+            "id": "socker",
+            "group": "1",
+            "description": ";laksdjf",
+            "val": 20,
+            "links": [
+                {
+                    "target": "maeker"
+                }
+            ]
+        },
+        {
+            "id": "mask",
+            "group": "2",
+            "description": "jqpwie",
+            "val": 20,
+            "links": [
+                {
+                    "target": "Count"
+                }
+            ]
+        }
+    ],
+    "links": [
+        {
+            "source": "Cravatte",
+            "target": "Labarre",
+            "value": 1
+        },
+        {
+            "source": "Cravatte",
+            "target": "Valjean",
+            "value": 20
+        },
+        {
+            "source": "Labarre",
+            "target": "Count",
+            "value": 23
+        },
+        {
+            "source": "Count",
+            "target": "Marguerite",
+            "value": 40
+        },
+        {
+            "source": "sakbrro23",
+            "target": "Labarre",
+            "value": 1
+        },
+        {
+            "source": "sak",
+            "target": "Cravatte",
+            "value": 1
+        },
+        {
+            "source": "pak",
+            "target": "sak",
+            "value": 1
+        },
+        {
+            "source": "paking",
+            "target": "pak",
+            "value": 1
+        },
+        {
+            "source": "maeker",
+            "target": "pak",
+            "value": 1
+        },
+        {
+            "source": "socker",
+            "target": "maeker",
+            "value": 1
+        },
+        {
+            "source": "mask",
+            "target": "Count",
+            "value": 1
+        }
+    ]
+}

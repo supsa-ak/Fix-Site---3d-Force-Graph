@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body .main-nav {
+  background-color: #502c6c;
+}
+
+.left-section {
+  background-color: #351d48;
+  height: 50rem;
+  color: white;
+}
+
+.right-section {
+  background-color: #6b3b90;
+  height: 50rem;
+  color: white;
+}
+
+.main-footer {
+  background-color: #502c6c;
+}
+
+.footer-links {
+  gap: 1rem;
+}
+
+.footer-links > li > a:hover > i::before {
+  color: #cccccc;
+}
+
+.footer-links > li > a > i::before {
+  font-size: 25px;
+  color: white;
+}
+/*# sourceMappingURL=main.css.map */
