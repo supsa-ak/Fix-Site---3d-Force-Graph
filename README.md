@@ -1,6 +1,4 @@
 # Fix-Site---3d-Force-Graph
-
-# flask-ecommerce-site-by-sak
 Setup Project in Production Server (LocalHost) Steps
 
 
@@ -23,7 +21,7 @@ Go to directory-> Fix-Site---3d-Force-Graph
 Step 3:
 Delete Virtual Environment
 
-after pulling delete myenv folder in 'flask-ecommerce-site-by-sak' folder
+after pulling delete myenv folder in 'Fix-Site---3d-Force-Graph' folder
 
 Step 4:
 Create Virtual Environment
@@ -49,7 +47,7 @@ Run the Flask app
 - $python app.py
 
 
-Step 7:
+Step 8:
 Open localhost in browser 
 
 127.0.0.1:5000/
