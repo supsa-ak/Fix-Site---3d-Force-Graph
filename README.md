@@ -25,7 +25,7 @@ after pulling delete myenv folder in 'Fix-Site---3d-Force-Graph' folder
 
 Step 4:
 Create Virtual Environment
-
+  Go inside 'Fix-Site---3d-Force-Graph' folder 
 - $virtualenv myenv  
 
 
