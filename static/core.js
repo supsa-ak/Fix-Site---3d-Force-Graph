@@ -3,12 +3,13 @@ class NodeCore {
         this.window = window;
     };
     onNodeClick = async (node)=>{
-        // console.log("node was clicked: ",node);
+        console.log("node was clicked: ",node);
         // console.log(node['id']);
 
         document.getElementById("heading_current_node").style.display = "initial";
         document.getElementById("create_new_node_btn").style.display = "initial";
         document.getElementById("update_node").style.display = "initial";
+        document.getElementById("connected_to_div").style.display = "initial";
         if(document.getElementById("submit-create-new-node")){
             document.getElementById("submit-create-new-node").remove();
             document.getElementById("heading_new_node").remove();
@@ -17,7 +18,7 @@ class NodeCore {
         document.getElementById('nodedesc').value = node['description']; 
         document.getElementById('nodegrp').value = node['group']; 
         document.getElementById('nodeconn').value =  " ";
-        var link_no = node['links'].length
+        var link_no = node['links'].length;
         for(let i=0; i<link_no; i++){
             document.getElementById('nodeconn').value += node['links'][i]['target'] + " ";
         }
@@ -34,6 +35,10 @@ function create_new_node(){
     document.getElementById("heading_current_node").style.display = "none";
     document.getElementById("create_new_node_btn").style.display = "none";
     document.getElementById("update_node").style.display = "none";
+    document.getElementById("connected_to_div").style.display = "none";
+
+    // document.getElementById("connected_to_div").remove();
+
     var tag = document.createElement("button");
     tag.className = "btn btn-light";
     tag.type = "submit";

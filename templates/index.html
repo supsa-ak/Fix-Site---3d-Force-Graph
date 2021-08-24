@@ -84,26 +84,38 @@
                 <h3>Current Node</h3> 
               </div>
               <div id="heading_new_node"> </div>
-              <form action="/updatejson" method="POST">
+              <form action="/createnewnode" method="POST">
                 <div class="form-group">
                   <label for="nodeid">Node Id</label>
                   <input type="text" class="form-control" id="nodeid" name="nodeid"
-                    placeholder="Node id">
+                    placeholder="Node id" required>
                 </div>
                 <div class="form-group">
                   <label for="nodedesc">Node Description</label>
                   <input type="text" class="form-control" id="nodedesc" name="nodedesc"
-                    placeholder="Example input">
+                    placeholder="Node Description" required>
                 </div>
                 <div class="form-group">
                   <label for="nodegrp">Node Group</label>
                   <input type="number" min="1" class="form-control" id="nodegrp" name="nodegrp"
-                  placeholder="Example input">
+                  placeholder="Node Group" required>
                 </div>
-                <div class="form-group">
-                  <label for="multi">Connect Node to</label>
-                  <input type="text" class="form-control" placeholder="Enter existing node name" id="nodeconn" name="nodeconn" list="multi">
+                <div class="form-group" id="connected_to_div">
+                  <label for="connectedto">Connected to</label>
+                  <input type="text" class="form-control" placeholder="Connected to" id="nodeconn" name="nodeconn" list="connectedto">
+                </div>                
+                <label for="multi">Connect to Node</label>
+                <!-- <input type="text" class="form-control" placeholder="Enter existing node to connect" name="nodeconn2" list="multi"> -->
+                <div class="container">               
+                  <section >
+                    <select multiple="multiple" id="multi" list="multi" name="nodeconn2">
+                      {% for i in data['nodes'] %}
+                        <option value="{{i.id}}">{{ i.id }}</option>                        
+                      {% endfor %}          
+                    </select>
+                  </section>
                 </div>
+                <br>
                 <div  id="create-btn"></div>
               </form>
               <div id="update_node" class="form-group">

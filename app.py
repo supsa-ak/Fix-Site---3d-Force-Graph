@@ -12,19 +12,22 @@ def write_json(data, filename="datasets/nodes.json"):
 @app.route('/')
 def index():
 	print("_______INDEX___________")
+	f = open('datasets/nodes.json')
+	data = json.load(f)
+	return render_template('index.html', data=data)
 
-	return render_template('index.html')
-
-@app.route('/updatejson', methods=['GET','POST'])
-def updatejson():
+@app.route('/createnewnode', methods=['GET','POST'])
+def createnewnode():
 	f = open('datasets/nodes.json')
 	data = json.load(f)
 	if request.method == "POST":
 		node_id = request.form["nodeid"]
 		node_desc = request.form["nodedesc"]
 		node_grp = request.form["nodegrp"]
-		node_conn = request.form["nodeconn"]
-		# print(node_id)
+		node_conn = request.form.getlist("nodeconn2")
+		node_no = len(node_conn)
+		
+		print('Thsi is something', node_conn)
 		
 		with open ("datasets/nodes.json") as json_file:
 			data = json.load(json_file)
@@ -37,19 +40,27 @@ def updatejson():
 					"description": node_desc, 
 					"val": 20, 
 					"links":[
-						{"target": node_conn}
+						
 					]
 				}
 			temp.append(y)
 
+			temp = data["nodes"]
+			temp_no = len(temp) - 1
+			semp = data["nodes"][temp_no]["links"]
+			for i in range(node_no):
+				z = {"target": node_conn[i]}
+				semp.append(z)
+				
 			temp2  = data["links"]
 			no2 = len(temp2)
-			k = {
-					"source": node_id,
-					"target": node_conn,
-					"value": 1
-				}
-			temp2.append(k)
+			for i in range(node_no):
+				k = {
+						"source": node_id,
+						"target": node_conn[i],
+						"value": 1
+					}
+				temp2.append(k)
 
 		write_json(data)
 	# print(data)

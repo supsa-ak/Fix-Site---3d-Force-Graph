@@ -1,145 +1,16 @@
 {
     "nodes": [
         {
-            "id": "Cravatte",
-            "group": 1,
-            "description": "description 1",
-            "val": 20
-        },
-        {
-            "id": "Count",
-            "group": 1,
-            "description": "description 2",
-            "val": 90
-        },
-        {
-            "id": "Labarre",
-            "group": 3,
-            "description": "description 3",
-            "val": 30
-        },
-        {
-            "id": "Valjean",
-            "group": 1,
-            "description": "description 4",
-            "val": 20
-        },
-        {
-            "id": "Marguerite",
-            "group": 3,
-            "description": "description 5",
-            "val": 40
-        },
-        {
             "id": "sakbrro23",
             "group": "3",
             "description": "a;lskd sd",
             "val": 20,
             "links": [
                 {
-                    "target": "Labarre"
+                    "target": "mastrin"
                 },
                 {
-                    "target": "Cravatte"
-                }
-            ]
-        },
-        {
-            "id": "sak",
-            "group": "-1",
-            "description": "math",
-            "val": 20,
-            "links": [
-                {
-                    "target": "Cravatte"
-                }
-            ]
-        },
-        {
-            "id": "pak",
-            "group": "",
-            "description": ";askld",
-            "val": 20,
-            "links": [
-                {
-                    "target": "sak"
-                }
-            ]
-        },
-        {
-            "id": "paking",
-            "group": "3",
-            "description": ";alsdkf",
-            "val": 20,
-            "links": [
-                {
-                    "target": "pak"
-                }
-            ]
-        },
-        {
-            "id": "maeker",
-            "group": "1",
-            "description": ";alksd",
-            "val": 20,
-            "links": [
-                {
-                    "target": "pak"
-                }
-            ]
-        },
-        {
-            "id": "socker",
-            "group": "1",
-            "description": ";laksdjf",
-            "val": 20,
-            "links": [
-                {
-                    "target": "maeker"
-                }
-            ]
-        },
-        {
-            "id": "mask",
-            "group": "2",
-            "description": "jqpwie",
-            "val": 20,
-            "links": [
-                {
-                    "target": "Count"
-                }
-            ]
-        },
-        {
-            "id": "jungle",
-            "group": "3",
-            "description": "maping ithadjs",
-            "val": 20,
-            "links": [
-                {
-                    "target": "sak"
-                }
-            ]
-        },
-        {
-            "id": "maping",
-            "group": "2",
-            "description": "maskied;lk  wek",
-            "val": 20,
-            "links": [
-                {
-                    "target": "sak"
-                }
-            ]
-        },
-        {
-            "id": "kasyi",
-            "group": "3",
-            "description": "lasj;alkss is ",
-            "val": 20,
-            "links": [
-                {
-                    "target": "Count"
+                    "target": "mekdi"
                 }
             ]
         },
@@ -150,16 +21,10 @@
             "val": 20,
             "links": [
                 {
-                    "target": "kasyi"
+                    "target": "sakbrro23"
                 },
                 {
-                    "target": "kasyi2"
-                },
-                {
-                    "target": "kasyi3"
-                },
-                {
-                    "target": "kasyi4"
+                    "target": "mastrin"
                 }
             ]
         },
@@ -171,89 +36,107 @@
             "links": [
                 {
                     "target": "mekdi"
+                },
+                {
+                    "target": "sakbrro23"
+                }
+            ]
+        },
+        {
+            "id": "kuttakamina",
+            "group": "1",
+            "description": "harakutta hai chimtu",
+            "val": 20,
+            "links": [
+                {
+                    "target": "mastrin"
+                }
+            ]
+        },
+        {
+            "id": "kamina",
+            "group": "3",
+            "description": "good days",
+            "val": 20,
+            "links": [
+                {
+                    "target": "sakbrro23"
+                }
+            ]
+        },
+        {
+            "id": "pak",
+            "group": "4",
+            "description": "pak is pak",
+            "val": 20,
+            "links": [
+                {
+                    "target": "mekdi"
+                }
+            ]
+        },
+        {
+            "id": "sak",
+            "group": "3",
+            "description": "sak",
+            "val": 20,
+            "links": [
+                {
+                    "target": "sakbrro23"
+                },
+                {
+                    "target": "mastrin"
+                },
+                {
+                    "target": "pak"
                 }
             ]
         }
     ],
     "links": [
         {
-            "source": "Cravatte",
-            "target": "Labarre",
+            "source": "sakbrro23",
+            "target": "mastrin",
             "value": 1
-        },
-        {
-            "source": "Cravatte",
-            "target": "Valjean",
-            "value": 20
-        },
-        {
-            "source": "Labarre",
-            "target": "Count",
-            "value": 23
-        },
-        {
-            "source": "Count",
-            "target": "Marguerite",
-            "value": 40
         },
         {
             "source": "sakbrro23",
-            "target": "Labarre",
-            "value": 1
-        },
-        {
-            "source": "sak",
-            "target": "Cravatte",
-            "value": 1
-        },
-        {
-            "source": "pak",
-            "target": "sak",
-            "value": 1
-        },
-        {
-            "source": "paking",
-            "target": "pak",
-            "value": 1
-        },
-        {
-            "source": "maeker",
-            "target": "pak",
-            "value": 1
-        },
-        {
-            "source": "socker",
-            "target": "maeker",
-            "value": 1
-        },
-        {
-            "source": "mask",
-            "target": "Count",
-            "value": 1
-        },
-        {
-            "source": "jungle",
-            "target": "sak",
-            "value": 1
-        },
-        {
-            "source": "maping",
-            "target": "sak",
-            "value": 1
-        },
-        {
-            "source": "kasyi",
-            "target": "Count",
+            "target": "mekdi",
             "value": 1
         },
         {
             "source": "mekdi",
-            "target": "kasyi",
+            "target": "mastrin",
             "value": 1
         },
         {
-            "source": "mastrin",
+            "source": "kuttakamina",
+            "target": "mastrin",
+            "value": 1
+        },
+        {
+            "source": "kamina",
+            "target": "sakbrro23",
+            "value": 1
+        },
+        {
+            "source": "pak",
             "target": "mekdi",
+            "value": 1
+        },
+        {
+            "source": "sak",
+            "target": "sakbrro23",
+            "value": 1
+        },
+        {
+            "source": "sak",
+            "target": "mastrin",
+            "value": 1
+        },
+        {
+            "source": "sak",
+            "target": "pak",
             "value": 1
         }
     ]
