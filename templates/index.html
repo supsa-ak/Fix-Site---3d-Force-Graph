@@ -75,27 +75,39 @@
         <div class="col-md-2 right-section d-flex justify-content-center align-items-center">
           <div id=rightPanel>
             <div id="rightPanelMenu">
+              <div id="create_new_node_btn">
+                <button type="submit" onclick="create_new_node()" class="btn btn-light">Create a new node</button>                
+              </div>
+              <br>
+              <br>
+              <div>
+              <h3>Current Node</h3> 
+              </div>
               <form action="/updatejson" method="POST">
                 <div class="form-group">
-                  <label for="formGroupExampleInput">Node Id</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" name="nodeid"
+                  <label for="nodeid">Node Id</label>
+                  <input type="text" class="form-control" id="nodeid" name="nodeid"
                     placeholder="Node id">
                 </div>
                 <div class="form-group">
-                  <label for="formGroupExampleInput">Node Description</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" name="nodedesc"
+                  <label for="nodedesc">Node Description</label>
+                  <input type="text" class="form-control" id="nodedesc" name="nodedesc"
                     placeholder="Example input">
                 </div>
                 <div class="form-group">
-                  <label for="formGroupExampleInput">Node Group</label>
-                  <input type="number" class="form-control" id="formGroupExampleInput" name="nodegrp"
-                    placeholder="Example input">
+                  <label for="nodegrp">Node Group</label>
+                  <input type="number" min="1" class="form-control" id="nodegrp" name="nodegrp"
+                  placeholder="Example input">
                 </div>
-                <label for="multi">Connect Node to</label>
-                <input type="text" class="form-control" placeholder="Enter existing node name" name="nodeconn" list="multi">
-                </br>
-                <button type="submit" class="btn btn-light">Create a new node</button>
+                <div class="form-group">
+                  <label for="multi">Connect Node to</label>
+                  <input type="text" class="form-control" placeholder="Enter existing node name" id="nodeconn" name="nodeconn" list="multi">
+                </div>
+                <div  id="create-btn"></div>
               </form>
+              <div id="update_node" class="form-group">
+                <button >Update(not working)</button>  
+              </div>
             </div>
             <div id=nodeData></div>
           </div>

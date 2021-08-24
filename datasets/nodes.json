@@ -38,6 +38,9 @@
             "links": [
                 {
                     "target": "Labarre"
+                },
+                {
+                    "target": "Cravatte"
                 }
             ]
         },
@@ -148,6 +151,26 @@
             "links": [
                 {
                     "target": "kasyi"
+                },
+                {
+                    "target": "kasyi2"
+                },
+                {
+                    "target": "kasyi3"
+                },
+                {
+                    "target": "kasyi4"
+                }
+            ]
+        },
+        {
+            "id": "mastrin",
+            "group": "1",
+            "description": "teacher is good person",
+            "val": 20,
+            "links": [
+                {
+                    "target": "mekdi"
                 }
             ]
         }
@@ -226,6 +249,11 @@
         {
             "source": "mekdi",
             "target": "kasyi",
+            "value": 1
+        },
+        {
+            "source": "mastrin",
+            "target": "mekdi",
             "value": 1
         }
     ]
