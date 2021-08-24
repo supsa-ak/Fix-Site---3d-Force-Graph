@@ -19,35 +19,30 @@ Step 2:
 Go to directory-> Fix-Site---3d-Force-Graph
 
 Step 3:
-Delete Virtual Environment
-
-after pulling delete myenv folder in 'Fix-Site---3d-Force-Graph' folder
-
-Step 4:
 Create Virtual Environment
   Go inside 'Fix-Site---3d-Force-Graph' folder 
 - $virtualenv myenv  
 
 
-Step 5:
+Step 4:
 Activate Virtual Environment 
 
 - $myenv/Scripts/activate
 
 
-Step 6:
+Step 5:
 Install packages 
 
 - $pip install -r requirements.txt
 
 
-Step 7:
+Step 6:
 Run the Flask app 
 
 - $python app.py
 
 
-Step 8:
+Step 7:
 Open localhost in browser 
 
 127.0.0.1:5000/
