@@ -62,6 +62,13 @@ def createnewnode():
 					}
 				temp2.append(k)
 
+			for i in range(node_no):
+				for j in temp:
+					if j["id"] == node_conn[i]:
+						p = {"target": node_id}
+						j["links"].append(p)
+						break
+
 		write_json(data)
 	# print(data)
 	return redirect(url_for('index'))	

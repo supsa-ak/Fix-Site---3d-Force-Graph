@@ -1,142 +1,185 @@
 {
     "nodes": [
         {
-            "id": "sakbrro23",
-            "group": "3",
-            "description": "a;lskd sd",
-            "val": 20,
-            "links": [
-                {
-                    "target": "mastrin"
-                },
-                {
-                    "target": "mekdi"
-                }
-            ]
-        },
-        {
-            "id": "mekdi",
-            "group": "3",
-            "description": "lendi ahe hi",
-            "val": 20,
-            "links": [
-                {
-                    "target": "sakbrro23"
-                },
-                {
-                    "target": "mastrin"
-                }
-            ]
-        },
-        {
-            "id": "mastrin",
+            "id": "sak",
             "group": "1",
-            "description": "teacher is good person",
+            "description": "sak",
             "val": 20,
             "links": [
                 {
-                    "target": "mekdi"
+                    "target": "pak"
                 },
                 {
-                    "target": "sakbrro23"
-                }
-            ]
-        },
-        {
-            "id": "kuttakamina",
-            "group": "1",
-            "description": "harakutta hai chimtu",
-            "val": 20,
-            "links": [
+                    "target": "math"
+                },
                 {
-                    "target": "mastrin"
-                }
-            ]
-        },
-        {
-            "id": "kamina",
-            "group": "3",
-            "description": "good days",
-            "val": 20,
-            "links": [
+                    "target": "node1"
+                },
                 {
-                    "target": "sakbrro23"
+                    "target": "node2"
                 }
             ]
         },
         {
             "id": "pak",
-            "group": "4",
-            "description": "pak is pak",
+            "group": "2",
+            "description": "pak",
             "val": 20,
             "links": [
                 {
-                    "target": "mekdi"
+                    "target": "sak"
+                },
+                {
+                    "target": "math"
+                },
+                {
+                    "target": "node1"
+                },
+                {
+                    "target": "node2"
                 }
             ]
         },
         {
-            "id": "sak",
+            "id": "math",
             "group": "3",
-            "description": "sak",
+            "description": "math desc",
             "val": 20,
             "links": [
                 {
-                    "target": "sakbrro23"
-                },
-                {
-                    "target": "mastrin"
+                    "target": "sak"
                 },
                 {
                     "target": "pak"
+                },
+                {
+                    "target": "node1"
+                },
+                {
+                    "target": "node2"
+                },
+                {
+                    "target": "node3"
+                }
+            ]
+        },
+        {
+            "id": "node1",
+            "group": "4",
+            "description": "node desc",
+            "val": 20,
+            "links": [
+                {
+                    "target": "sak"
+                },
+                {
+                    "target": "pak"
+                },
+                {
+                    "target": "math"
+                },
+                {
+                    "target": "node2"
+                }
+            ]
+        },
+        {
+            "id": "node2",
+            "group": "4",
+            "description": ";lskfd;laksdjf",
+            "val": 20,
+            "links": [
+                {
+                    "target": "sak"
+                },
+                {
+                    "target": "pak"
+                },
+                {
+                    "target": "math"
+                },
+                {
+                    "target": "node1"
+                },
+                {
+                    "target": "node3"
+                }
+            ]
+        },
+        {
+            "id": "node3",
+            "group": "5",
+            "description": ";alskdjf;lk",
+            "val": 20,
+            "links": [
+                {
+                    "target": "math"
+                },
+                {
+                    "target": "node2"
                 }
             ]
         }
     ],
     "links": [
         {
-            "source": "sakbrro23",
-            "target": "mastrin",
-            "value": 1
-        },
-        {
-            "source": "sakbrro23",
-            "target": "mekdi",
-            "value": 1
-        },
-        {
-            "source": "mekdi",
-            "target": "mastrin",
-            "value": 1
-        },
-        {
-            "source": "kuttakamina",
-            "target": "mastrin",
-            "value": 1
-        },
-        {
-            "source": "kamina",
-            "target": "sakbrro23",
-            "value": 1
-        },
-        {
             "source": "pak",
-            "target": "mekdi",
+            "target": "sak",
             "value": 1
         },
         {
-            "source": "sak",
-            "target": "sakbrro23",
+            "source": "math",
+            "target": "sak",
             "value": 1
         },
         {
-            "source": "sak",
-            "target": "mastrin",
-            "value": 1
-        },
-        {
-            "source": "sak",
+            "source": "math",
             "target": "pak",
+            "value": 1
+        },
+        {
+            "source": "node1",
+            "target": "sak",
+            "value": 1
+        },
+        {
+            "source": "node1",
+            "target": "pak",
+            "value": 1
+        },
+        {
+            "source": "node1",
+            "target": "math",
+            "value": 1
+        },
+        {
+            "source": "node2",
+            "target": "sak",
+            "value": 1
+        },
+        {
+            "source": "node2",
+            "target": "pak",
+            "value": 1
+        },
+        {
+            "source": "node2",
+            "target": "math",
+            "value": 1
+        },
+        {
+            "source": "node2",
+            "target": "node1",
+            "value": 1
+        },
+        {
+            "source": "node3",
+            "target": "math",
+            "value": 1
+        },
+        {
+            "source": "node3",
+            "target": "node2",
             "value": 1
         }
     ]
