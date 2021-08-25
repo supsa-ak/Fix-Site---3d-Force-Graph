@@ -17,6 +17,9 @@
                 },
                 {
                     "target": "node2"
+                },
+                {
+                    "target": "brro"
                 }
             ]
         },
@@ -60,6 +63,12 @@
                 },
                 {
                     "target": "node3"
+                },
+                {
+                    "target": "brro"
+                },
+                {
+                    "target": "mask off"
                 }
             ]
         },
@@ -80,6 +89,9 @@
                 },
                 {
                     "target": "node2"
+                },
+                {
+                    "target": "mask off"
                 }
             ]
         },
@@ -117,6 +129,40 @@
                 },
                 {
                     "target": "node2"
+                }
+            ]
+        },
+        {
+            "id": "brro",
+            "group": "6",
+            "description": "a;slkdj ;alksj lkee",
+            "val": 20,
+            "links": [
+                {
+                    "target": "sak"
+                },
+                {
+                    "target": "math"
+                },
+                {
+                    "target": "mask off"
+                }
+            ]
+        },
+        {
+            "id": "mask off",
+            "group": "1",
+            "description": "masked of f on click",
+            "val": 20,
+            "links": [
+                {
+                    "target": "math"
+                },
+                {
+                    "target": "node1"
+                },
+                {
+                    "target": "brro"
                 }
             ]
         }
@@ -180,6 +226,31 @@
         {
             "source": "node3",
             "target": "node2",
+            "value": 1
+        },
+        {
+            "source": "brro",
+            "target": "sak",
+            "value": 1
+        },
+        {
+            "source": "brro",
+            "target": "math",
+            "value": 1
+        },
+        {
+            "source": "mask off",
+            "target": "math",
+            "value": 1
+        },
+        {
+            "source": "mask off",
+            "target": "node1",
+            "value": 1
+        },
+        {
+            "source": "mask off",
+            "target": "brro",
             "value": 1
         }
     ]

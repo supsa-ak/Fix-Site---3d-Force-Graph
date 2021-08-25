@@ -3,7 +3,7 @@ class NodeCore {
         this.window = window;
     };
     onNodeClick = async (node)=>{
-        console.log("node was clicked: ",node);
+        // console.log("node was clicked: ",node);
         // console.log(node['id']);
 
         document.getElementById("heading_current_node").style.display = "initial";
@@ -19,8 +19,14 @@ class NodeCore {
         document.getElementById('nodegrp').value = node['group']; 
         document.getElementById('nodeconn').value =  " ";
         var link_no = node['links'].length;
+        
         for(let i=0; i<link_no; i++){
-            document.getElementById('nodeconn').value += node['links'][i]['target'] + " ";
+            var element = document.createElement("option");
+            element.appendChild(document.createTextNode(node['links'][i]['target']));
+            element.value = node['links'][i]['target'];
+            element.selected = true;
+            document.getElementById('nodeconn').appendChild(element);
+            // document.getElementById('nodeconn').value += node['links'][i]['target'] + " ";
         }
     };
 }

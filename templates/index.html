@@ -4,6 +4,12 @@
       margin: 0;
     }
   </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='select2.min.css') }}" />
+  <script src="{{ url_for('static',filename='select2.min.js') }}"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='split.css') }}" />
 
   <script src="{{ url_for('static',filename='core.js') }}"></script>
@@ -16,8 +22,11 @@
   <script src="https://unpkg.com/3d-force-graph"></script>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='sass/main.css') }}" />
 
-  <script type='text/javascript' src='http://code.jquery.com/jquery-1.4.4.min.js'></script>
-
+  <style>
+    .select2-selection__choice__display{
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
@@ -76,50 +85,52 @@
           <div id=rightPanel>
             <div id="rightPanelMenu">
               <div id="create_new_node_btn">
-                <button type="submit" onclick="create_new_node()" class="btn btn-light">Create a new node</button>                
+                <button type="submit" onclick="create_new_node()" class="btn btn-light">Create a new node</button>
               </div>
               <br>
               <br>
               <div id="heading_current_node">
-                <h3>Current Node</h3> 
+                <h3>Current Node</h3>
               </div>
               <div id="heading_new_node"> </div>
               <form action="/createnewnode" method="POST">
                 <div class="form-group">
                   <label for="nodeid">Node Id</label>
-                  <input type="text" class="form-control" id="nodeid" name="nodeid"
-                    placeholder="Node id" required>
+                  <input type="text" class="form-control" id="nodeid" name="nodeid" placeholder="Node id" required>
                 </div>
                 <div class="form-group">
                   <label for="nodedesc">Node Description</label>
-                  <input type="text" class="form-control" id="nodedesc" name="nodedesc"
-                    placeholder="Node Description" required>
+                  <input type="text" class="form-control" id="nodedesc" name="nodedesc" placeholder="Node Description"
+                    required>
                 </div>
                 <div class="form-group">
                   <label for="nodegrp">Node Group</label>
-                  <input type="number" min="1" class="form-control" id="nodegrp" name="nodegrp"
-                  placeholder="Node Group" required>
+                  <input type="number" min="1" class="form-control" id="nodegrp" name="nodegrp" placeholder="Node Group"
+                    required>
                 </div>
+                <label for="multi2">Connected to</label>
                 <div class="form-group" id="connected_to_div">
-                  <label for="connectedto">Connected to</label>
-                  <input type="text" class="form-control" placeholder="Connected to" id="nodeconn" name="nodeconn" list="connectedto">
-                </div>                
+                  <select id="nodeconn" list="multi2" class="form-select multiple-select form-select-lg mb-3" name="nodeconn" multiple>                   
+                  
+                  </select>                          
+                  <!-- <label for="connectedto">Connected to</label>
+                  <input type="text" class="form-control" placeholder="Connected to" id="nodeconn" name="nodeconn"
+                    list="connectedto"> -->
+                </div>
                 <label for="multi">Connect to Node</label>
                 <!-- <input type="text" class="form-control" placeholder="Enter existing node to connect" name="nodeconn2" list="multi"> -->
-                <div class="container">               
-                  <section >
-                    <select multiple="multiple" id="multi" list="multi" name="nodeconn2">
+                <div>               
+                    <select id="multi" list="multi" class="form-select multiple-select form-select-lg mb-3" name="nodeconn2" multiple>
                       {% for i in data['nodes'] %}
-                        <option value="{{i.id}}">{{ i.id }}</option>                        
-                      {% endfor %}          
-                    </select>
-                  </section>
+                      <option value="{{i.id}}">{{ i.id }}</option>
+                      {% endfor %}
+                    </select>                  
                 </div>
                 <br>
-                <div  id="create-btn"></div>
+                <div id="create-btn"></div>
               </form>
               <div id="update_node" class="form-group">
-                <button >Update(not working)</button>  
+                <button>Update(not working)</button>
               </div>
             </div>
             <div id=nodeData></div>
@@ -155,15 +166,13 @@
 
   <!-- End Footer -->
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
     integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
 </body>
 
 
@@ -172,7 +181,7 @@
   if (document.getElementById('3d-graph')) {
     graph()
   }
-  function graph(){
+  function graph() {
     const Graph = ForceGraph3D()
       (document.getElementById('3d-graph'))
       // .jsonUrl('https://raw.githubusercontent.com/vasturiano/3d-force-graph/master/example/datasets/miserables.json')
@@ -197,7 +206,10 @@
     var container = document.getElementById("3d-graph");
     var content = container.innerHTML;
     container.innerHTML = content;
-    graph()  
+    graph()
   }
 
+  $(".multiple-select").select2({
+    placeholder: '  --Select--'
+    });
 </script>
