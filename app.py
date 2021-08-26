@@ -2,7 +2,6 @@ from flask import Flask, escape, request, render_template, jsonify, send_from_di
 import urllib.request
 import json 
 
-
 app = Flask(__name__)
 
 def write_json(data, filename="datasets/nodes.json"):
@@ -14,7 +13,11 @@ def index():
 	print("_______INDEX___________")
 	f = open('datasets/nodes.json')
 	data = json.load(f)
-	return render_template('index.html', data=data)
+	list1 = data['nodes']
+	list2 = []
+	for i in range(len(list1)):
+		list2.append(list1[i]['id'])
+	return render_template('index.html', list2=json.dumps(list2))
 
 @app.route('/createnewnode', methods=['GET','POST'])
 def createnewnode():
@@ -73,6 +76,12 @@ def createnewnode():
 	# print(data)
 	return redirect(url_for('index'))	
 
+
+@app.route('/updatenode', methods=['GET','POST'])
+def updatenode():
+
+	
+	return redirect(url_for('index'))	
 
 @app.route('/datasets/<path:path>')
 def send_js(path):

@@ -1,3 +1,4 @@
+<!doctype html>
 <head>
   <style>
     body {
@@ -23,8 +24,12 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='sass/main.css') }}" />
 
   <style>
-    .select2-selection__choice__display{
+    .select2-selection__choice__display {
       color: black;
+    }
+
+    .select2-container--default .select2-results__option--selected {
+      background-color: #00ff7d48;
     }
   </style>
 </head>
@@ -79,7 +84,6 @@
       <div class="row">
         <div class="col-md-10 left-section d-flex justify-content-center align-items-center">
           <div id="3d-graph"></div>
-          <!-- <h1>90%</h1> -->
         </div>
         <div class="col-md-2 right-section d-flex justify-content-center align-items-center">
           <div id=rightPanel>
@@ -93,7 +97,7 @@
                 <h3>Current Node</h3>
               </div>
               <div id="heading_new_node"> </div>
-              <form action="/createnewnode" method="POST">
+              <form action="" method="POST" id='form'>
                 <div class="form-group">
                   <label for="nodeid">Node Id</label>
                   <input type="text" class="form-control" id="nodeid" name="nodeid" placeholder="Node id" required>
@@ -108,34 +112,25 @@
                   <input type="number" min="1" class="form-control" id="nodegrp" name="nodegrp" placeholder="Node Group"
                     required>
                 </div>
-                <label for="multi2">Connected to</label>
+                <label id="conn-to-label" for="multi2">Connected to</label>
                 <div class="form-group" id="connected_to_div">
-                  <select id="nodeconn" list="multi2" class="form-select multiple-select form-select-lg mb-3" name="nodeconn" multiple>                   
-                  
-                  </select>                          
-                  <!-- <label for="connectedto">Connected to</label>
-                  <input type="text" class="form-control" placeholder="Connected to" id="nodeconn" name="nodeconn"
-                    list="connectedto"> -->
+                  <select id="nodeconn" list="multi2" class="form-select multiple-select form-select-lg mb-3"
+                    name="nodeconn" multiple>
+                  </select>
                 </div>
                 <label for="multi">Connect to Node</label>
-                <!-- <input type="text" class="form-control" placeholder="Enter existing node to connect" name="nodeconn2" list="multi"> -->
-                <div>               
-                    <select id="multi" list="multi" class="form-select multiple-select form-select-lg mb-3" name="nodeconn2" multiple>
-                      {% for i in data['nodes'] %}
-                      <option value="{{i.id}}">{{ i.id }}</option>
-                      {% endfor %}
-                    </select>                  
+                <div class="form-group" id="connect_to_node">
+                  <select id="nodeconn2" list="multi" class="form-select multiple-select form-select-lg mb-3"
+                    name="nodeconn2" multiple>
+                  </select>
                 </div>
-                <br>
                 <div id="create-btn"></div>
+                <div id="update_node" class="form-group">
+                  <button class="btn btn-light" type="submit">Update</button>
+                </div>
               </form>
-              <div id="update_node" class="form-group">
-                <button>Update(not working)</button>
-              </div>
-            </div>
-            <div id=nodeData></div>
+            </div>            
           </div>
-          <!-- <h1>10%</h1> -->
         </div>
       </div>
     </div>
@@ -170,9 +165,6 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
     crossorigin="anonymous"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
-    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
-    crossorigin="anonymous"></script> -->
 </body>
 
 
@@ -211,5 +203,10 @@
 
   $(".multiple-select").select2({
     placeholder: '  --Select--'
-    });
+  });
+
+  let all_nodes = {{ list2 | safe }};
+
+
 </script>
+</html>

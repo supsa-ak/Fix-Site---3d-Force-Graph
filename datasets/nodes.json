@@ -20,6 +20,9 @@
                 },
                 {
                     "target": "brro"
+                },
+                {
+                    "target": "major node"
                 }
             ]
         },
@@ -40,6 +43,9 @@
                 },
                 {
                     "target": "node2"
+                },
+                {
+                    "target": "major node"
                 }
             ]
         },
@@ -69,6 +75,9 @@
                 },
                 {
                     "target": "mask off"
+                },
+                {
+                    "target": "major node"
                 }
             ]
         },
@@ -92,6 +101,9 @@
                 },
                 {
                     "target": "mask off"
+                },
+                {
+                    "target": "major node"
                 }
             ]
         },
@@ -115,6 +127,9 @@
                 },
                 {
                     "target": "node3"
+                },
+                {
+                    "target": "major node"
                 }
             ]
         },
@@ -129,6 +144,9 @@
                 },
                 {
                     "target": "node2"
+                },
+                {
+                    "target": "major node"
                 }
             ]
         },
@@ -146,6 +164,9 @@
                 },
                 {
                     "target": "mask off"
+                },
+                {
+                    "target": "major node"
                 }
             ]
         },
@@ -163,6 +184,41 @@
                 },
                 {
                     "target": "brro"
+                },
+                {
+                    "target": "major node"
+                }
+            ]
+        },
+        {
+            "id": "major node",
+            "group": "6",
+            "description": "connected to all 8 nodes",
+            "val": 20,
+            "links": [
+                {
+                    "target": "sak"
+                },
+                {
+                    "target": "pak"
+                },
+                {
+                    "target": "math"
+                },
+                {
+                    "target": "node1"
+                },
+                {
+                    "target": "node2"
+                },
+                {
+                    "target": "node3"
+                },
+                {
+                    "target": "brro"
+                },
+                {
+                    "target": "mask off"
                 }
             ]
         }
@@ -251,6 +307,46 @@
         {
             "source": "mask off",
             "target": "brro",
+            "value": 1
+        },
+        {
+            "source": "major node",
+            "target": "sak",
+            "value": 1
+        },
+        {
+            "source": "major node",
+            "target": "pak",
+            "value": 1
+        },
+        {
+            "source": "major node",
+            "target": "math",
+            "value": 1
+        },
+        {
+            "source": "major node",
+            "target": "node1",
+            "value": 1
+        },
+        {
+            "source": "major node",
+            "target": "node2",
+            "value": 1
+        },
+        {
+            "source": "major node",
+            "target": "node3",
+            "value": 1
+        },
+        {
+            "source": "major node",
+            "target": "brro",
+            "value": 1
+        },
+        {
+            "source": "major node",
+            "target": "mask off",
             "value": 1
         }
     ]
