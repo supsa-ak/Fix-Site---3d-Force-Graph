@@ -3,7 +3,7 @@ class NodeCore {
         this.window = window;
     };
     onNodeClick = async (node) => {
-        // console.log("node was clicked: ",node);
+        console.log("node was clicked: ",node);
         // console.log(node['id']);
 
         document.getElementById("heading_current_node").style.display = "initial";
@@ -11,9 +11,12 @@ class NodeCore {
         document.getElementById("update_node").style.display = "initial";
         document.getElementById("connected_to_div").style.display = "initial";
         document.getElementById("conn-to-label").style.display = "initial";
+        document.getElementById("deleteform").style.display = "initial";
         document.getElementById("nodeconn").innerHTML = "";
         document.getElementById("nodeconn2").innerHTML = "";
         document.getElementById("form").action = "/updatenode";
+        document.getElementById("delete-input").value = node['id'];
+        document.getElementById("index-node").value = node['index'];
 
         if (document.getElementById("submit-create-new-node")) {
             document.getElementById("submit-create-new-node").remove();
@@ -66,6 +69,7 @@ function create_new_node() {
     document.getElementById("update_node").style.display = "none";
     document.getElementById("connected_to_div").style.display = "none";
     document.getElementById("conn-to-label").style.display = "none";
+    document.getElementById("deleteform").style.display = "none";
 
     document.getElementById("nodeconn").innerHTML = "";
     document.getElementById("nodeconn2").innerHTML = "";
