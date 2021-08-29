@@ -3,7 +3,7 @@ class NodeCore {
         this.window = window;
     };
     onNodeClick = async (node) => {
-        console.log("node was clicked: ",node);
+        // console.log("node was clicked: ",node);
         // console.log(node['id']);
 
         document.getElementById("heading_current_node").style.display = "initial";
@@ -17,6 +17,8 @@ class NodeCore {
         document.getElementById("form").action = "/updatenode";
         document.getElementById("delete-input").value = node['id'];
         document.getElementById("index-node").value = node['index'];
+        document.getElementById("delete-input").value = node['index'];
+        document.getElementById("delete-input-node").value = node['id'];
 
         if (document.getElementById("submit-create-new-node")) {
             document.getElementById("submit-create-new-node").remove();
@@ -42,7 +44,7 @@ class NodeCore {
             rem_array.push(node['links'][i]['target']);
         }
         rem_array.push(node['id']);
-        
+
         // console.log('this is rem-arr', rem_array);
         var diff = $(all_nodes).not(rem_array).get();
 
@@ -98,4 +100,8 @@ function create_new_node() {
         element.value = all_nodes[i];
         document.getElementById('nodeconn2').appendChild(element);
     }
+}
+
+function deletenode(){
+
 }

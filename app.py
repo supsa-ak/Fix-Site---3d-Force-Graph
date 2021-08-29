@@ -1,6 +1,7 @@
 from flask import Flask, escape, request, render_template, jsonify, send_from_directory, url_for, redirect
 import urllib.request
 import json 
+import requests
 
 app = Flask(__name__)
 
@@ -102,19 +103,19 @@ def updatenode():
 			for i in range (len(data['nodes'][node_index]['links'])):
 				targets.append(data['nodes'][node_index]['links'][i]['target'])
 			flag = False			
-			print("this is target here 1", targets)
+			# print("this is target here 1", targets)
 			for i in range(len(targets)):
 				flag = False
-				print('i is ',i)
+				# print('i is ',i)
 				for j in range(len(data['nodes'])):
-					print('j is ', j)
+					# print('j is ', j)
 					if flag:
 						break
 					if data['nodes'][j]['id'] == targets[i]:
-						print('here i target is ',targets[i])
+						# print('here i target is ',targets[i])
 						for m in range(len(data['nodes'][j]['links'])):
 							if data['nodes'][j]['links'][m]['target'] == prev_id:
-								print('m is ', m, 'and ', data['nodes'][j]['links'][m], 'is target')
+								# print('m is ', m, 'and ', data['nodes'][j]['links'][m], 'is target')
 								data['nodes'][j]['links'][m]['target'] = node_id
 								flag = True
 								break
@@ -187,8 +188,56 @@ def updatenode():
 
 @app.route('/deletenode', methods=['GET','POST'])
 def deletenode():
+	f = open('datasets/nodes.json')
+	data = json.load(f)
+	if request.method == "POST":
+		node_index = int(request.form["delete-input"])
+		print('index is ',node_index)
+		node_id = request.form["delete-input-node"]
+		print('id is ',node_id)
+		targets = []
+		for i in range (len(data['nodes'][node_index]['links'])):
+			targets.append(data['nodes'][node_index]['links'][i]['target'])
+		print('this is target', targets)
+		del data['nodes'][node_index]
+		flag = False
+		for i in range(len(targets)):
+			flag = False
+			for j in range(len(data['nodes'])):
+				if flag:
+					break
+				if targets[i] == data['nodes'][j]['id']:
+					for k in range(len(data['nodes'][j]['links'])):
+						if data['nodes'][j]['links'][k]['target'] == node_id:
+							del data['nodes'][j]['links'][k]
+							flag = True
+							break
+		# for i in range(len(targets)):
+		# 	print('i is ', i, 'and i value is ', targets[i])
+		# 	for j in range(len(data['links'])):
+		# 		print('j is ', j, 'and j value is ', data['links'][j])
+		# 		if data['links'][j]['source'] == node_id and data['links'][j]['target'] == targets[i]:
+		# 			print('inside j loop', data['links'][j])
+		# 			del data['links'][j]
+		# 		elif data['links'][j]['source'] == targets[i] and data['links'][j]['target'] == node_id:			
+		# 			print('inside j2 loop', data['links'][j])
+		# 			del data['links'][j]
 
+		for i in range(len(targets)):
+			# print('this is i ', i)
+			for j in range(len(data['links'])):
+				# print('this is j', j)
+				if targets[i] == data['links'][j]['source'] and node_id == data['links'][j]['target']:
+					del data['links'][j]
+					break
+		for k in range(len(targets)):
+			for l in range(len(data['links'])):
+				# print('this is j2', l)
+				if node_id == data['links'][l]['source'] and targets[k] == data['links'][l]['target']:
+					del data['links'][l]
+					break		
 
+		write_json(data)
 	return redirect(url_for('index'))	
 
 @app.route('/datasets/<path:path>')   

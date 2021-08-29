@@ -32,6 +32,7 @@
     .select2-container--default .select2-results__option--selected {
       background-color: #00ff7d48;
     }
+
     .btn:not(:disabled):not(.disabled) {
       margin-left: 1rem;
     }
@@ -70,7 +71,7 @@
 
       </ul>
       <ul>
-        <div class="container"><button onclick="refreshGraph()" type="button" class="btn btn-light">LOAD NODES</button>
+        <div class="container"><button onclick="clearAll()" type="button" class="btn btn-light">LOAD NODES</button>
         </div>
       </ul>
       <ul class="navbar-nav">
@@ -131,21 +132,20 @@
                 </div>
                 <div id="create-btn"></div>
                 <div class="d-flex">
-            
-                <div id="update_node" class="form-group">
-                  <button class="btn btn-light" type="submit">Update</button>
-                </div>
+
+                  <div id="update_node" class="form-group">
+                    <button class="btn btn-light" type="submit">Update</button>
+                  </div>
               </form>
               <br>
-              <form  action="/deletenode" id="deleteform">
+              <form action="/deletenode" id="deleteform" method="POST">
                 <div class="container">
-                  <input type="hidden" id="delete-input" value="">
+                  <input type="hidden" id="delete-input" name="delete-input" value="">
+                  <input type="hidden" id="delete-input-node" name="delete-input-node" value="">
                 </div>
                 <div id="update_node" style="margin-left: 1 em;" class="form-group">
                   <button class="btn btn-danger" type="submit">Delete</button>
                 </div>
-                      
-              </div>
               </form>
             </div>
           </div>
@@ -214,16 +214,15 @@
     Graph.d3Force('charge').strength(-200);
   }
 
-  function refreshGraph() {
-    var container = document.getElementById("3d-graph");
-    var content = container.innerHTML;
-    container.innerHTML = content;
-    graph()
-  }
+
 
   $(".multiple-select").select2({
     placeholder: '  --Select--'
   });
+
+  function clearAll() {
+    window.location.reload(true);
+  }
 
   let all_nodes = {{ list2 | safe }};
 
