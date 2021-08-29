@@ -42,3 +42,7 @@
   width: 150px;
   border-radius: 50%;
 }
+
+.navbar{
+  z-index: 999;
+}
