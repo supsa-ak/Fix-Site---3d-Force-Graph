@@ -1,6 +1,9 @@
 <!doctype html>
 
 <head>
+  <meta http-equiv='cache-control' content='no-cache'>
+  <meta http-equiv='expires' content='0'>
+  <meta http-equiv='pragma' content='no-cache'>
   <style>
     body {
       margin: 0;
@@ -71,7 +74,8 @@
 
       </ul>
       <ul>
-        <div class="container"><button onclick="clearAll()" type="button" class="btn btn-light">LOAD NODES</button>
+        <div class="container"><button onclick="clearAll()" type="button" class="btn btn-light" id="load-node">LOAD
+            NODES</button>
         </div>
       </ul>
       <ul class="navbar-nav">
@@ -87,7 +91,7 @@
   <section>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-10 left-section d-flex justify-content-center align-items-center">
+        <div class="col-md-10 left-section d-flex justify-content-center align-items-center" id="3d-graph-par">
           <div id="3d-graph"></div>
         </div>
         <div class="col-md-2 right-section d-flex justify-content-center align-items-center">
@@ -134,7 +138,7 @@
                 <div class="d-flex">
 
                   <div id="update_node" class="form-group">
-                    <button class="btn btn-light" type="submit">Update</button>
+                    <button class="btn btn-light" onclick="clearAll()" type="submit">Update</button>
                   </div>
               </form>
               <br>
@@ -144,7 +148,7 @@
                   <input type="hidden" id="delete-input-node" name="delete-input-node" value="">
                 </div>
                 <div id="update_node" style="margin-left: 1 em;" class="form-group">
-                  <button class="btn btn-danger" type="submit">Delete</button>
+                  <button class="btn btn-danger" onclick="clearAll()" type="submit">Delete</button>
                 </div>
               </form>
             </div>
@@ -198,7 +202,7 @@
       (document.getElementById('3d-graph'))
       // .jsonUrl('https://raw.githubusercontent.com/vasturiano/3d-force-graph/master/example/datasets/miserables.json')
       // .jsonUrl('https://raw.githubusercontent.com/vasturiano/3d-force-graph/master/example/datasets/blocks.json')
-      .jsonUrl('/datasets/nodes.json').refresh()
+      .jsonUrl('/datasets/nodes.json')
       .nodeAutoColorBy('group')
       .onNodeClick(node => {
         nodeCore.onNodeClick(node);
@@ -221,8 +225,16 @@
   });
 
   function clearAll() {
-    window.location.reload(true);
+    async function getData(url = 'http://127.0.0.1:5000/datasets/nodes.json') {
+      const response = await fetch(url, {
+        cache: 'no-cache'
+      });
+      return response.json(); 
+    }
+    getData()
+    window.location.reload();
   }
+
 
   let all_nodes = {{ list2 | safe }};
 

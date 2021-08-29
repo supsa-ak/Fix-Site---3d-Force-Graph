@@ -82,6 +82,7 @@ function create_new_node() {
     tag.className = "btn btn-light";
     tag.type = "submit";
     tag.id = "submit-create-new-node";
+    tag.onclick = "clearAll()";
     var text = document.createTextNode("Create");
     tag.appendChild(text);
     var element = document.getElementById("create-btn");

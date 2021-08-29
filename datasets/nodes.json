@@ -1,4 +1,52 @@
 {
-    "nodes": [],
-    "links": []
+    "nodes": [
+        {
+            "id": "node1",
+            "group": "2",
+            "description": "node",
+            "val": 20,
+            "links": [
+                {
+                    "target": "node3"
+                },
+                {
+                    "target": "babu"
+                }
+            ]
+        },
+        {
+            "id": "node3",
+            "group": "2",
+            "description": ";lk",
+            "val": 20,
+            "links": [
+                {
+                    "target": "node1"
+                }
+            ]
+        },
+        {
+            "id": "babu",
+            "group": "2",
+            "description": "bu",
+            "val": 20,
+            "links": [
+                {
+                    "target": "node1"
+                }
+            ]
+        }
+    ],
+    "links": [
+        {
+            "source": "node3",
+            "target": "node1",
+            "value": 1
+        },
+        {
+            "source": "babu",
+            "target": "node1",
+            "value": 1
+        }
+    ]
 }
