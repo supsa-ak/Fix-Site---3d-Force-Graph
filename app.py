@@ -1,9 +1,11 @@
 from flask import Flask, escape, request, render_template, jsonify, send_from_directory, url_for, redirect
 import urllib.request
-import json 
+import json
 import requests
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, resources={r"/datasets/*": {"origins": "*"}})
 
 def write_json(data, filename="datasets/nodes.json"):
 	with open(filename, "w") as f:

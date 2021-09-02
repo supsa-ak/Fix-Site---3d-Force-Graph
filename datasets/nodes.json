@@ -1,51 +1,103 @@
 {
     "nodes": [
         {
-            "id": "node1",
+            "id": "node2",
             "group": "2",
-            "description": "node",
+            "description": "sdfasdf",
             "val": 20,
             "links": [
+                {
+                    "target": "master"
+                },
                 {
                     "target": "node3"
                 },
                 {
-                    "target": "babu"
+                    "target": "node4"
+                }
+            ]
+        },
+        {
+            "id": "master",
+            "group": "5",
+            "description": "connected to all nodes ",
+            "val": 20,
+            "links": [
+                {
+                    "target": "node2"
+                },
+                {
+                    "target": "node3"
+                },
+                {
+                    "target": "node4"
                 }
             ]
         },
         {
             "id": "node3",
             "group": "2",
-            "description": ";lk",
+            "description": "asdf",
             "val": 20,
             "links": [
                 {
-                    "target": "node1"
+                    "target": "node2"
+                },
+                {
+                    "target": "master"
+                },
+                {
+                    "target": "node4"
                 }
             ]
         },
         {
-            "id": "babu",
-            "group": "2",
-            "description": "bu",
+            "id": "node4",
+            "group": "3",
+            "description": "node4",
             "val": 20,
             "links": [
                 {
-                    "target": "node1"
+                    "target": "node2"
+                },
+                {
+                    "target": "master"
+                },
+                {
+                    "target": "node3"
                 }
             ]
         }
     ],
     "links": [
         {
-            "source": "node3",
-            "target": "node1",
+            "source": "master",
+            "target": "node2",
             "value": 1
         },
         {
-            "source": "babu",
-            "target": "node1",
+            "source": "node3",
+            "target": "node2",
+            "value": 1
+        },
+        {
+            "source": "node3",
+            "target": "master",
+            "value": 1
+        },
+        {
+            "source": "node4",
+            "target": "node2",
+            "value": 1
+        },
+        {
+            "source": "node4",
+            "target": "master",
+            "value": 1
+        },
+        {
+            "source": "node4",
+            "target": "node3",
             "value": 1
         }
     ]
